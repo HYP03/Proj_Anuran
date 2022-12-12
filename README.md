@@ -1,5 +1,5 @@
 <h1>Aplicacion de modelos no supervisados.<span class="tocSkip"></span></h1>
-<img src= https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.animales.website%2Fanura%2F&psig=AOvVaw2vT40o-YIJFbq96QFhzRjA&ust=1670957227913000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDlpqvg9PsCFQAAAAAdAAAAABAD>
+<img src= Proj2_MDA/Anuran.jpg>
 <div class="toc"><ul class="toc-item"><li><span><a href="#Definicion-del-problema." data-toc-modified-id="Definicion-del-problema.-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Definicion del problema.</a></span></li><li><span><a href="#Librerías-generales" data-toc-modified-id="Librerías-generales-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Librerías generales</a></span><ul class="toc-item"><li><span><a href="#Importacion-de-datos" data-toc-modified-id="Importacion-de-datos-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Importacion de datos</a></span></li></ul></li><li><span><a href="#Implementación" data-toc-modified-id="Implementación-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Implementación</a></span><ul class="toc-item"><li><span><a href="#Kmeans" data-toc-modified-id="Kmeans-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Kmeans</a></span></li><li><span><a href="#Agnes" data-toc-modified-id="Agnes-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Agnes</a></span></li><li><span><a href="#Birch" data-toc-modified-id="Birch-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Birch</a></span></li><li><span><a href="#DBSCAN" data-toc-modified-id="DBSCAN-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>DBSCAN</a></span></li></ul></li></ul></div>
 
 ## Definicion del problema.
@@ -12,7 +12,7 @@ Algunas caracteristicas del Dataset son:
 - Presenta entropía espectral y un método de conglomerado binario para detectar tramas de audio pertenecientes a cada sílaba.
 - La segmentación y extracción de características se realizó en Matlab.
 
-<image src=https://upload.wikimedia.org/wikipedia/commons/c/c1/Anurans_from_the_RPPN_Serra_Bonita%2C_Bahia_State%2C_Northeastern_Brazil_-_1.jpg>
+<image src=Proj2_MDA/Anuran Class.png>
 
 ## Librerías generales
 
