@@ -12,7 +12,7 @@ Algunas caracteristicas del Dataset son:
 - Presenta entropía espectral y un método de conglomerado binario para detectar tramas de audio pertenecientes a cada sílaba.
 - La segmentación y extracción de características se realizó en Matlab.
 
-<image src=Proj2_MDA/Anuran Class.png>
+<image src=Proj2_MDA/Anuran_Class.png>
 
 ## Librerías generales
 
