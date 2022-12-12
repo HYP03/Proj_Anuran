@@ -1,7 +1,5 @@
 <h1>Aplicacion de modelos no supervisados.<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Definicion-del-problema." data-toc-modified-id="Definicion-del-problema.-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Definicion del problema.</a></span></li><li><span><a href="#Librerías-generales" data-toc-modified-id="Librerías-generales-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Librerías generales</a></span><ul class="toc-item"><li><span><a href="#Importacion-de-datos" data-toc-modified-id="Importacion-de-datos-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Importacion de datos</a></span></li><li><span><a href="#Kmeans" data-toc-modified-id="Kmeans-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Kmeans</a></span></li><li><span><a href="#Kmediod" data-toc-modified-id="Kmediod-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Kmediod</a></span></li><li><span><a href="#Agnes" data-toc-modified-id="Agnes-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Agnes</a></span></li><li><span><a href="#Birch" data-toc-modified-id="Birch-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>Birch</a></span></li><li><span><a href="#DBSCAN" data-toc-modified-id="DBSCAN-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>DBSCAN</a></span></li><li><span><a href="#Hierarchical" data-toc-modified-id="Hierarchical-2.7"><span class="toc-item-num">2.7&nbsp;&nbsp;</span>Hierarchical</a></span></li><li><span><a href="#Manifold" data-toc-modified-id="Manifold-2.8"><span class="toc-item-num">2.8&nbsp;&nbsp;</span>Manifold</a></span></li><li><span><a href="#DENCLUE" data-toc-modified-id="DENCLUE-2.9"><span class="toc-item-num">2.9&nbsp;&nbsp;</span>DENCLUE</a></span></li></ul></li></ul></div>
-
-<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Schrecklicherpfeilgiftfrosch-01.jpg/786px-Schrecklicherpfeilgiftfrosch-01.jpg>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Definicion-del-problema." data-toc-modified-id="Definicion-del-problema.-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Definicion del problema.</a></span></li><li><span><a href="#Librerías-generales" data-toc-modified-id="Librerías-generales-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Librerías generales</a></span><ul class="toc-item"><li><span><a href="#Importacion-de-datos" data-toc-modified-id="Importacion-de-datos-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Importacion de datos</a></span></li></ul></li><li><span><a href="#Implementación" data-toc-modified-id="Implementación-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Implementación</a></span><ul class="toc-item"><li><span><a href="#Kmeans" data-toc-modified-id="Kmeans-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Kmeans</a></span></li><li><span><a href="#Agnes" data-toc-modified-id="Agnes-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Agnes</a></span></li><li><span><a href="#Birch" data-toc-modified-id="Birch-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Birch</a></span></li><li><span><a href="#DBSCAN" data-toc-modified-id="DBSCAN-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>DBSCAN</a></span></li></ul></li></ul></div>
 
 ## Definicion del problema.
 
@@ -239,7 +237,7 @@ plt.savefig('pairplot')
 
 
     
-![png](output_12_1.png)
+![png](output_11_1.png)
     
 
 
@@ -256,18 +254,46 @@ plt.savefig('corr')
 
 
     
-![png](output_13_0.png)
+![png](output_12_0.png)
     
 
 
 ## Implementación
 
-Para esta sección se implemetarán 7 métodos de clustering, por lo tanto debemos eliminar las variables que no son de interés o son la solucion como por ejemplo la Familia a la que pertenecen.
+Para esta sección se implemetarán 4 métodos de clustering, por lo tanto debemos eliminar las variables que no son de interés o son la solucion como por ejemplo la Familia a la que pertenecen. Donde inicialmente se hace un plot en base a los datos de familia para utilizar en la comparación.
+
+
+```python
+
+df['Family'] = df['Family'].map({'Leptodactylidae':0, 'Dendrobatidae':1, 'Hylidae':2,  'Bufonidae':3}).astype(int)
+df.drop(columns=['Genus','Species'],inplace=True)
+```
+
+
+```python
+scaler = StandardScaler()
+X = scaler.fit_transform(df)
+y = df.Family
+ul = np.unique(y)
+
+plt.figure(figsize=(15,5))
+for i in ul:
+    plt.scatter(X[y==i, 12], X[y==i, 14], label = i)
+plt.title('Mapa de Familias')
+plt.legend()
+plt.show()
+```
+
+
+    
+![png](output_15_0.png)
+    
+
 
 
 ```python
 #Eliminamos los elementos que no consideraremos (inicialmente, trabajaremos en base a las familias)
-df.drop(columns=['Family', 'Genus','Species'],inplace=True)
+df.drop(columns=['Family'],inplace=True)
 ```
 
 
@@ -418,7 +444,7 @@ plt.show()
 
 
     
-![png](output_18_0.png)
+![png](output_19_0.png)
     
 
 
@@ -454,7 +480,7 @@ plt.show()
 
 
     
-![png](output_20_1.png)
+![png](output_21_1.png)
     
 
 
@@ -485,7 +511,7 @@ plt.show()
 
 
     
-![png](output_23_0.png)
+![png](output_24_0.png)
     
 
 
@@ -520,7 +546,7 @@ plt.show()
 
 
     
-![png](output_28_0.png)
+![png](output_29_0.png)
     
 
 
@@ -553,7 +579,7 @@ plt.show()
 
 
     
-![png](output_32_0.png)
+![png](output_33_0.png)
     
 
 
@@ -586,6 +612,8 @@ plt.show()
 
 
     
-![png](output_36_0.png)
+![png](output_37_0.png)
     
 
+
+Finalmente, se realiza una comparación de los 4 metodos implementados; siendo el que mejor comportamiento presenta el DBSCAN. Esto se debe a que DBSCAN es un algoritmo de clúster basado en la densidad, el cual puede ser utilizado para identificar clústeres de cualquier forma en un conjunto de datos que contiene ruido y valores atípicos. En nuestro caso, los datos recopilados en el DataSet, tal como indica la fuente presenta cierto rango de ruido. Sin embargo, otros métodos como el Agnes; presentan un comportamiento aceptable. Sin embargo, todos los metodos implementados distan de lo expuesto al graficar los datos reales, por lo tanto se debe realizar la implementación  de otros métodos o entrenar más los clusters
